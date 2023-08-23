@@ -1,0 +1,13 @@
+{
+    "gopls": {
+        "ui.semanticTokens": true,
+    },
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "--fast",
+        "--fix"
+    ],
+    "go.lintOnSave": "package",
+    "markdownlint.run": "onType",
+    "markdown.validate.enabled": true
+}
