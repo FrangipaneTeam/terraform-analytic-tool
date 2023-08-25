@@ -123,6 +123,7 @@ func (c *config) readConfigFromEnvVars() {
 	// API
 	SetEnvVars("API_ADDRESS", &c.API.Address)
 	SetEnvVars("API_PORT", &c.API.Port)
+	SetEnvVars("API_TOKEN", &c.API.Token)
 }
 
 // isValid checks if the minimal config is valid.

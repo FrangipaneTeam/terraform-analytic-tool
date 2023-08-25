@@ -47,4 +47,7 @@ func ErrRender(err error) render.Renderer {
 	}
 }
 
-var ErrNotFound = &ErrResponse{HTTPStatusCode: 404, StatusText: "Resource not found."}
+var (
+	ErrNotFound     = &ErrResponse{HTTPStatusCode: 404, StatusText: "Resource not found."}
+	ErrInvalidToken = &ErrResponse{HTTPStatusCode: 403, StatusText: "Forbidden."}
+)
