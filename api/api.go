@@ -40,6 +40,7 @@ func New(aSettings Settings) {
 	a := new(api)
 	a.RedisClient = aSettings.RedisClient
 	a.InfluxDBClient = aSettings.InfluxDBClient
+	a.Token = aSettings.Token
 
 	r := chi.NewRouter()
 
