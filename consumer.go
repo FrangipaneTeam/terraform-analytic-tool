@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"time"
 
+	"github.com/FrangipaneTeam/terraform-analytic-tool/api"
+	"github.com/FrangipaneTeam/terraform-analytic-tool/clients"
 	"github.com/influxdata/influxdb-client-go/v2/api/write"
-	"github.com/orange-cloudavenue/terraform-analytic-tool/api"
-	"github.com/orange-cloudavenue/terraform-analytic-tool/clients"
 )
 
 func consumer(r *clients.RedisClient, i *clients.InfluxDBClient) {

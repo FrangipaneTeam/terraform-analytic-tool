@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/orange-cloudavenue/terraform-analytic-tool/api"
-	"github.com/orange-cloudavenue/terraform-analytic-tool/clients"
+	"github.com/FrangipaneTeam/terraform-analytic-tool/api"
+	"github.com/FrangipaneTeam/terraform-analytic-tool/clients"
 	"gopkg.in/yaml.v3"
 )
 

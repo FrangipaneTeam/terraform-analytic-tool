@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/FrangipaneTeam/terraform-analytic-tool/clients"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
-	"github.com/orange-cloudavenue/terraform-analytic-tool/clients"
 )
 
 type Settings struct {
