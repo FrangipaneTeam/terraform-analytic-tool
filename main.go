@@ -38,7 +38,12 @@ func main() {
 
 	// Setup Redis Client
 	redisClient := clients.NewRedisClient(clients.RedisConfig{
-		Address: cfg.Redis.Address,
+		Address:      cfg.Redis.Address,
+		Password:     cfg.Redis.Password,
+		MaxRetries:   cfg.Redis.MaxRetries,
+		DialTimeout:  cfg.Redis.DialTimeout,
+		ReadTimeout:  cfg.Redis.ReadTimeout,
+		WriteTimeout: cfg.Redis.WriteTimeout,
 	})
 
 	influxdbClient := clients.NewInfluxDBClient(clients.InfluxDBConfig{
