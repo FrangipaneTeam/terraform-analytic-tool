@@ -64,11 +64,12 @@ func main() {
 
 	if onlyAPI {
 		api.New(api.Settings{
-			Address:        cfg.API.Address,
-			Port:           cfg.API.Port,
+			Address: cfg.API.Address,
+			Port:    cfg.API.Port,
+			Token:   cfg.API.Token,
+
 			RedisClient:    redisClient,
 			InfluxDBClient: influxdbClient,
-			Token:          cfg.API.Token,
 		})
 	}
 
