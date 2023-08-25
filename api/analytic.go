@@ -17,7 +17,7 @@ type AnalyticRequest struct {
 	Action string `json:"action"`
 
 	// ExecutionTime is the time in ms to execute the action
-	ExecutionTime int `json:"executionTime"`
+	ExecutionTime int64 `json:"executionTime"`
 
 	// Data is the interface containing extra data
 	Data map[string]interface{} `json:"data,omitempty"`
