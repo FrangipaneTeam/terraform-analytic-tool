@@ -68,6 +68,7 @@ func main() {
 			Port:           cfg.API.Port,
 			RedisClient:    redisClient,
 			InfluxDBClient: influxdbClient,
+			Token:          cfg.API.Token,
 		})
 	}
 
