@@ -22,6 +22,10 @@ type Settings struct {
 	// Default: 8000
 	Port string `yaml:"port"`
 
+	// Token is the token of the api server.
+	// Default: ""
+	Token string `yaml:"token"`
+
 	*clients.RedisClient
 	*clients.InfluxDBClient
 }
@@ -44,6 +48,12 @@ func New(aSettings Settings) {
 	r.Use(middleware.RealIP)
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
+	if aSettings.Token != "" {
+		r.Use(a.checkTokenMiddleware)
+	} else {
+		log.Default().Println("Warning: no token provided")
+	}
+
 	// Set a timeout value on the request context (ctx), that will signal
 	// through ctx.Done() that the request has timed out and further
 	// processing should be stopped.
@@ -80,4 +90,19 @@ func (a *api) apiSendHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 	}
 	w.WriteHeader(http.StatusOK)
+}
+
+// checkTokenMiddleware checks if the token is valid.
+func (a *api) checkTokenMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Check if token is valid
+		if r.Header.Get("Authorization") != a.Token {
+			if err := render.Render(w, r, ErrInvalidToken); err != nil {
+				log.Default().Println(err)
+			}
+			return
+		}
+
+		next.ServeHTTP(w, r)
+	})
 }
